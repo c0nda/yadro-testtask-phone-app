@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id ("com.google.devtools.ksp") version "2.0.21-1.0.27"
 }
 
 android {
@@ -46,6 +47,8 @@ dependencies {
 
     // Lifecycle
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.compiler)
 
     // Compose
     implementation(libs.androidx.activity.compose)
@@ -56,4 +59,11 @@ dependencies {
     implementation(libs.androidx.material3)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Dagger 2
+    implementation (libs.dagger)
+    ksp (libs.google.dagger.compiler)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
 }

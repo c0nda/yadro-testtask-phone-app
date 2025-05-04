@@ -1,4 +1,4 @@
-package com.listener.yadrophoneapp.ui.theme
+package com.listener.yadrophoneapp.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
