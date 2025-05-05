@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">yadro-phone-app</string>
+    <string name="try_later">Something went wrong. \nTry again later.</string>
 </resources>

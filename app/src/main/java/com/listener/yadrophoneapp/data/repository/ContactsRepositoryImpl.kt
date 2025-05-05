@@ -11,7 +11,7 @@ class ContactsRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource
 ) : ContactsRepository {
 
-    override fun getAllContacts(): Flow<Result<List<Contact>>> {
+    override suspend fun getAllContacts(): Flow<Result<List<Contact>>> {
         return localDataSource.getAllContactsFromDevice()
     }
 }

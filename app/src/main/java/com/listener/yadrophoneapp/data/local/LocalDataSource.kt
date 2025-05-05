@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface LocalDataSource {
 
-    fun getAllContactsFromDevice(): Flow<Result<List<Contact>>>
+    suspend fun getAllContactsFromDevice(): Flow<Result<List<Contact>>>
 }

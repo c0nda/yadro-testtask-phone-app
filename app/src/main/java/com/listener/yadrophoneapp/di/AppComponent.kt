@@ -8,7 +8,9 @@ import javax.inject.Singleton
 
 @Component(
     modules = [
-        DataModule::class
+        DataModule::class,
+        UseCaseModule::class,
+        ViewModelModule::class
     ]
 )
 @Singleton

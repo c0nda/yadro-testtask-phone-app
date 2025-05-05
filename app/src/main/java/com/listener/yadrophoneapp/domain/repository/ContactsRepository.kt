@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface ContactsRepository {
 
-    fun getAllContacts(): Flow<Result<List<Contact>>>
+    suspend fun getAllContacts(): Flow<Result<List<Contact>>>
 }
