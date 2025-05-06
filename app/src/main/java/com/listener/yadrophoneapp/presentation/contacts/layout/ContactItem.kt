@@ -31,7 +31,7 @@ fun ContactItem(
         onClick = onClickContact,
         modifier = modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.background
+            containerColor = MaterialTheme.colorScheme.tertiary
         )
     ) {
         Row(
@@ -58,5 +58,4 @@ fun ContactItem(
             }
         }
     }
-
 }
