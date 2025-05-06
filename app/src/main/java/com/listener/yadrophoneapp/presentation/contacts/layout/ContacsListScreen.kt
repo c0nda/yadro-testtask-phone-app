@@ -1,7 +1,6 @@
 package com.listener.yadrophoneapp.presentation.contacts.layout
 
 import android.content.Intent
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -69,10 +68,6 @@ fun ContactsListScreen(
             ) {
                 Text(
                     text = stringResource(R.string.try_later)
-                )
-                Log.e(
-                    "error",
-                    (contactsState.value as Result.Error<List<Contact>>).error.toString()
                 )
             }
         }
