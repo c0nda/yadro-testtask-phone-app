@@ -29,7 +29,9 @@ fun ContactItem(
 ) {
     Card(
         onClick = onClickContact,
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(top = 4.dp, bottom = 4.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.tertiary
         )

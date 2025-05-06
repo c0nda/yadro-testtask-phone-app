@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,15 +39,23 @@ fun ContactsListScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.White)
-                    .padding(start = 8.dp, end = 8.dp, top = 24.dp)
+                    .padding(start = 8.dp, end = 8.dp, top = 32.dp, bottom = 8.dp)
             ) {
-                items((contactsState.value as Result.Success<List<Contact>>).data) {
-                    ContactItem(it) {
-                        val intent = Intent(
-                            Intent.ACTION_CALL,
-                            ("tel:" + it.phoneNumber).toUri()
-                        )
-                        context.startActivity(intent)
+                val contacts = (contactsState.value as Result.Success<List<Contact>>).data.groupBy { contact ->
+                    contact.displayName.first().toString().uppercase()
+                }
+                contacts.map { entry ->
+                    stickyHeader {
+                        LetterItem(entry.key)
+                    }
+                    items(entry.value.size) { index ->
+                        ContactItem(entry.value[index]) {
+                            val intent = Intent(
+                                Intent.ACTION_CALL,
+                                ("tel:" + entry.value[index].phoneNumber).toUri()
+                            )
+                            context.startActivity(intent)
+                        }
                     }
                 }
             }
